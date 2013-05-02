@@ -18,10 +18,8 @@ static NSMutableAttributedString *INKMutableAttributedOutputString;
 
 static void appendTextWithAttributes(const struct buf *text, NSDictionary *attributes)
 {
-    NSData *outputData = [NSData dataWithBytes:text->data length:text->size];
-    NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
-    
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:outputString];
+    NSString *outputString                  = [[NSString alloc] initWithData:[NSData dataWithBytes:text->data length:text->size] encoding:NSUTF8StringEncoding];
+    NSMutableAttributedString *attrString   = [[NSMutableAttributedString alloc] initWithString:outputString];
 
     if(attributes)
         [attrString addAttributes:attributes range:NSMakeRange(0, outputString.length)];
@@ -54,7 +52,26 @@ static void renderHeader(struct buf *ob, const struct buf *text, int level, void
 //    bufputs(ob, "------------------------------------\n");
 //    bufputc(ob, '\n');
 
-    appendTextWithAttributes(text, @{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName: [UIFont boldSystemFontOfSize:32]});
+    
+    level = MAX(MIN(level -1, 5), 0);
+    
+    CGFloat fontSize = 0.0f;
+    switch (level)
+    {
+        case 0:
+            fontSize = 32.0f;
+            break;
+        case 1:
+            fontSize = 18.0f;
+        default:
+            fontSize = 12.0f;
+            break;
+    }
+    
+    struct buf *htext = (struct buf *)text;
+    bufputc(htext, '\n');
+
+    appendTextWithAttributes(htext, @{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName: [UIFont boldSystemFontOfSize:fontSize]});
 }
 
 static void renderHrule(struct buf *ob, void *opaque)
@@ -79,8 +96,11 @@ static void renderParagraph(struct buf *ob, const struct buf *text, void *opaque
 //    bufput(ob, text->data, text->size);
 //    bufputc(ob, '\n');
 //    bufputc(ob, '\n');
+
+    struct buf *ptext = (struct buf *)text;
+    bufputc(ptext, '\n');
     
-    appendTextWithAttributes(text, @{NSForegroundColorAttributeName: [UIColor redColor]});
+    appendTextWithAttributes(ptext, @{NSForegroundColorAttributeName: [UIColor redColor]});
 }
 
 static void renderTable(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque)
@@ -176,13 +196,7 @@ static void renderEntity(struct buf *ob, const struct buf *entity, void *opaque)
 
 static void renderNormalText(struct buf *ob, const struct buf *text, void *opaque)
 {
-//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
-//    
-//    bufput(ob, text->data, text->size);
-//    bufputc(ob, '\n');
-//    bufputc(ob, '\n');
-
-    appendTextWithAttributes(text, @{NSForegroundColorAttributeName: [UIColor greenColor]});
+    bufput(ob, text->data, text->size);
 }
 
 
@@ -222,8 +236,8 @@ struct sd_callbacks inkCallbacks = {
     .superscript        = renderSuperscript,
     .entity             = renderEntity,
     .normal_text        = renderNormalText,
-//    .doc_header         = renderDocHeader,
-//    .doc_footer         = renderDocFooter,
+    .doc_header         = renderDocHeader,
+    .doc_footer         = renderDocFooter,
 };
 
 #endif
