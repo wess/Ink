@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		082F6D591732C8B20061978F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082F6D581732C8B20061978F /* Foundation.framework */; };
+		082F6D5E1732C8B20061978F /* Ink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; };
+		082F6D601732C8B20061978F /* Ink.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F6D5F1732C8B20061978F /* Ink.m */; };
+		082F6D961732CC3A0061978F /* InkMarkdownSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F6D951732CC3A0061978F /* InkMarkdownSyntax.m */; };
+		08B933421732E6770005C382 /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B933391732E6770005C382 /* autolink.c */; };
+		08B933431732E6770005C382 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B9333B1732E6770005C382 /* buffer.c */; };
+		08B933441732E6770005C382 /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B9333E1732E6770005C382 /* markdown.c */; };
+		08B933451732E6770005C382 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B933401732E6770005C382 /* stack.c */; };
+		08B933501732EB3C0005C382 /* InkRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9334F1732EB3C0005C382 /* InkRenderer.m */; };
+		08B933541732F3F40005C382 /* InkRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B9334E1732EB3C0005C382 /* InkRenderer.h */; };
+		08B933551732F3F60005C382 /* InkMarkdownSyntax.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D941732CC3A0061978F /* InkMarkdownSyntax.h */; };
+		08B933561732F3F90005C382 /* Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		082F6D531732C8B20061978F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				082F6D5E1732C8B20061978F /* Ink.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		082F6D551732C8B20061978F /* libInk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		082F6D581732C8B20061978F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		082F6D5C1732C8B20061978F /* Ink-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ink-Prefix.pch"; sourceTree = "<group>"; };
+		082F6D5D1732C8B20061978F /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
+		082F6D5F1732C8B20061978F /* Ink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ink.m; sourceTree = "<group>"; };
+		082F6D8F1732CB2C0061978F /* libParseKitMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libParseKitMobile.a; path = "../parsekit/build/Debug-iphoneos/libParseKitMobile.a"; sourceTree = "<group>"; };
+		082F6D901732CB2C0061978F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		082F6D941732CC3A0061978F /* InkMarkdownSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkMarkdownSyntax.h; sourceTree = "<group>"; };
+		082F6D951732CC3A0061978F /* InkMarkdownSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkMarkdownSyntax.m; sourceTree = "<group>"; };
+		08B933391732E6770005C382 /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autolink.c; path = ../sundown/src/autolink.c; sourceTree = "<group>"; };
+		08B9333A1732E6770005C382 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autolink.h; path = ../sundown/src/autolink.h; sourceTree = "<group>"; };
+		08B9333B1732E6770005C382 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = ../sundown/src/buffer.c; sourceTree = "<group>"; };
+		08B9333C1732E6770005C382 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = ../sundown/src/buffer.h; sourceTree = "<group>"; };
+		08B9333D1732E6770005C382 /* html_blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = html_blocks.h; path = ../sundown/src/html_blocks.h; sourceTree = "<group>"; };
+		08B9333E1732E6770005C382 /* markdown.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = markdown.c; path = ../sundown/src/markdown.c; sourceTree = "<group>"; };
+		08B9333F1732E6770005C382 /* markdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markdown.h; path = ../sundown/src/markdown.h; sourceTree = "<group>"; };
+		08B933401732E6770005C382 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stack.c; path = ../sundown/src/stack.c; sourceTree = "<group>"; };
+		08B933411732E6770005C382 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stack.h; path = ../sundown/src/stack.h; sourceTree = "<group>"; };
+		08B9334E1732EB3C0005C382 /* InkRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkRenderer.h; sourceTree = "<group>"; };
+		08B9334F1732EB3C0005C382 /* InkRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkRenderer.m; sourceTree = "<group>"; };
+		08B933591732F8480005C382 /* InkCallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkCallbacks.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		082F6D521732C8B20061978F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				082F6D591732C8B20061978F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		082F6D4C1732C8B20061978F = {
+			isa = PBXGroup;
+			children = (
+				082F6D5A1732C8B20061978F /* Ink */,
+				082F6D571732C8B20061978F /* Frameworks */,
+				082F6D561732C8B20061978F /* Products */,
+				08B933381732E65F0005C382 /* Lib */,
+			);
+			sourceTree = "<group>";
+		};
+		082F6D561732C8B20061978F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				082F6D551732C8B20061978F /* libInk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		082F6D571732C8B20061978F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				082F6D901732CB2C0061978F /* libicucore.dylib */,
+				082F6D8F1732CB2C0061978F /* libParseKitMobile.a */,
+				082F6D581732C8B20061978F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		082F6D5A1732C8B20061978F /* Ink */ = {
+			isa = PBXGroup;
+			children = (
+				082F6D931732CBC70061978F /* Parser */,
+				082F6D5D1732C8B20061978F /* Ink.h */,
+				082F6D5F1732C8B20061978F /* Ink.m */,
+				082F6D5B1732C8B20061978F /* Supporting Files */,
+			);
+			path = Ink;
+			sourceTree = "<group>";
+		};
+		082F6D5B1732C8B20061978F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				082F6D5C1732C8B20061978F /* Ink-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		082F6D931732CBC70061978F /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				08B933461732E6B60005C382 /* Renderer */,
+				082F6D941732CC3A0061978F /* InkMarkdownSyntax.h */,
+				082F6D951732CC3A0061978F /* InkMarkdownSyntax.m */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
+		08B933381732E65F0005C382 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				08B933391732E6770005C382 /* autolink.c */,
+				08B9333A1732E6770005C382 /* autolink.h */,
+				08B9333B1732E6770005C382 /* buffer.c */,
+				08B9333C1732E6770005C382 /* buffer.h */,
+				08B9333D1732E6770005C382 /* html_blocks.h */,
+				08B9333E1732E6770005C382 /* markdown.c */,
+				08B9333F1732E6770005C382 /* markdown.h */,
+				08B933401732E6770005C382 /* stack.c */,
+				08B933411732E6770005C382 /* stack.h */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		08B933461732E6B60005C382 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				08B9334E1732EB3C0005C382 /* InkRenderer.h */,
+				08B9334F1732EB3C0005C382 /* InkRenderer.m */,
+				08B933591732F8480005C382 /* InkCallbacks.h */,
+			);
+			name = Renderer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		08B933531732F3E90005C382 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B933561732F3F90005C382 /* Ink.h in Headers */,
+				08B933541732F3F40005C382 /* InkRenderer.h in Headers */,
+				08B933551732F3F60005C382 /* InkMarkdownSyntax.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		082F6D541732C8B20061978F /* Ink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 082F6D631732C8B20061978F /* Build configuration list for PBXNativeTarget "Ink" */;
+			buildPhases = (
+				082F6D511732C8B20061978F /* Sources */,
+				082F6D521732C8B20061978F /* Frameworks */,
+				082F6D531732C8B20061978F /* CopyFiles */,
+				08B933531732F3E90005C382 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ink;
+			productName = Ink;
+			productReference = 082F6D551732C8B20061978F /* libInk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		082F6D4D1732C8B20061978F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Wess Cope";
+			};
+			buildConfigurationList = 082F6D501732C8B20061978F /* Build configuration list for PBXProject "Ink" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 082F6D4C1732C8B20061978F;
+			productRefGroup = 082F6D561732C8B20061978F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				082F6D541732C8B20061978F /* Ink */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		082F6D511732C8B20061978F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				082F6D601732C8B20061978F /* Ink.m in Sources */,
+				082F6D961732CC3A0061978F /* InkMarkdownSyntax.m in Sources */,
+				08B933421732E6770005C382 /* autolink.c in Sources */,
+				08B933431732E6770005C382 /* buffer.c in Sources */,
+				08B933441732E6770005C382 /* markdown.c in Sources */,
+				08B933451732E6770005C382 /* stack.c in Sources */,
+				08B933501732EB3C0005C382 /* InkRenderer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		082F6D611732C8B20061978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		082F6D621732C8B20061978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		082F6D641732C8B20061978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/Ink.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ink/Ink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		082F6D651732C8B20061978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/Ink.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ink/Ink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		082F6D501732C8B20061978F /* Build configuration list for PBXProject "Ink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				082F6D611732C8B20061978F /* Debug */,
+				082F6D621732C8B20061978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		082F6D631732C8B20061978F /* Build configuration list for PBXNativeTarget "Ink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				082F6D641732C8B20061978F /* Debug */,
+				082F6D651732C8B20061978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 082F6D4D1732C8B20061978F /* Project object */;
+}
