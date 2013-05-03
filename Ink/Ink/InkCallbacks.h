@@ -9,12 +9,12 @@
 #import "markdown.h"
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <JInjector/JInjector.h>
+#import "InkStringBuilder.h"
 
 #ifndef Ink_InkCallbacks_h
 #define Ink_InkCallbacks_h
 
-
-static NSMutableAttributedString *INKMutableAttributedOutputString;
 
 static void appendTextWithAttributes(const struct buf *text, NSDictionary *attributes)
 {
@@ -23,9 +23,9 @@ static void appendTextWithAttributes(const struct buf *text, NSDictionary *attri
 
     if(attributes)
         [attrString addAttributes:attributes range:NSMakeRange(0, outputString.length)];
-    
-    if(INKMutableAttributedOutputString)
-        [INKMutableAttributedOutputString appendAttributedString:attrString];
+
+    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
+    [stringBuilder.attributedString appendAttributedString:attrString];
 }
 
 static void renderBlockcode(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque)
