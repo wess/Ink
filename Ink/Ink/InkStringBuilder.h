@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <JInjector/JInjector.h>
+#import "InkAttributes.h"
 
 @interface InkStringBuilder : NSObject <JInjectable>
 @property (nonatomic, readonly, strong) NSMutableAttributedString* attributedString;
+@property (strong, nonatomic) InkAttributes *attributes;
 @end

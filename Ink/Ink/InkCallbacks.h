@@ -11,21 +11,25 @@
 #import <Foundation/Foundation.h>
 #import <JInjector/JInjector.h>
 #import "InkStringBuilder.h"
+#import "InkAttributes.h"
 
 #ifndef Ink_InkCallbacks_h
 #define Ink_InkCallbacks_h
 
+#define INK_STRING_FROM_BUFFER(buf)             [[NSString alloc] initWithData:[NSData dataWithBytes:buf->data length:buf->size] encoding:NSUTF8StringEncoding]
+#define INK_STRING_BUILDER                      ((InkStringBuilder *)JInject(InkStringBuilder))
 
 static void appendTextWithAttributes(const struct buf *text, NSDictionary *attributes)
 {
-    NSString *outputString                  = [[NSString alloc] initWithData:[NSData dataWithBytes:text->data length:text->size] encoding:NSUTF8StringEncoding];
+    NSString *outputString                  = INK_STRING_FROM_BUFFER(text);
+    //[[NSString alloc] initWithData:[NSData dataWithBytes:text->data length:text->size] encoding:NSUTF8StringEncoding];
     NSMutableAttributedString *attrString   = [[NSMutableAttributedString alloc] initWithString:outputString];
 
     if(attributes)
         [attrString addAttributes:attributes range:NSMakeRange(0, outputString.length)];
 
-    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
-    [stringBuilder.attributedString appendAttributedString:attrString];
+//    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
+    [INK_STRING_BUILDER.attributedString appendAttributedString:attrString];
 }
 
 static void renderBlockcode(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque)
@@ -52,26 +56,11 @@ static void renderHeader(struct buf *ob, const struct buf *text, int level, void
 //    bufputs(ob, "------------------------------------\n");
 //    bufputc(ob, '\n');
 
-    
-    level = MAX(MIN(level -1, 5), 0);
-    
-    CGFloat fontSize = 0.0f;
-    switch (level)
-    {
-        case 0:
-            fontSize = 32.0f;
-            break;
-        case 1:
-            fontSize = 18.0f;
-        default:
-            fontSize = 12.0f;
-            break;
-    }
-    
     struct buf *htext = (struct buf *)text;
     bufputc(htext, '\n');
 
-    appendTextWithAttributes(htext, @{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName: [UIFont boldSystemFontOfSize:fontSize]});
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.headerAttributes(INK_STRING_FROM_BUFFER(htext), level);
+    appendTextWithAttributes(htext, attributes);
 }
 
 static void renderHrule(struct buf *ob, void *opaque)
@@ -99,8 +88,9 @@ static void renderParagraph(struct buf *ob, const struct buf *text, void *opaque
 
     struct buf *ptext = (struct buf *)text;
     bufputc(ptext, '\n');
-    
-    appendTextWithAttributes(ptext, @{NSForegroundColorAttributeName: [UIColor redColor]});
+
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.paragraphAttributes(INK_STRING_FROM_BUFFER(ptext));
+    appendTextWithAttributes(ptext, attributes);
 }
 
 static void renderTable(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque)

@@ -12,8 +12,12 @@
 
 - (id)init
 {
-    if((self = [super init]))
-        _attributedString = [NSMutableAttributedString new];
+    self = [super init];
+    if(self)
+    {
+        _attributedString   = [NSMutableAttributedString new];
+        _attributes         = [InkAttributes new];
+    }
     return self;
 }
 
