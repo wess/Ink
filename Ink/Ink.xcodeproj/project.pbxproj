@@ -20,6 +20,8 @@
 		08B933551732F3F60005C382 /* InkMarkdownSyntax.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D941732CC3A0061978F /* InkMarkdownSyntax.h */; };
 		08B933561732F3F90005C382 /* Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EC417491734076E003BCD69 /* libJInjector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC417481734076E003BCD69 /* libJInjector.a */; };
+		4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC4174A173407EB003BCD69 /* InkStringBuilder.h */; };
+		4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4174B173407EB003BCD69 /* InkStringBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,8 @@
 		08B9334F1732EB3C0005C382 /* InkRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkRenderer.m; sourceTree = "<group>"; };
 		08B933591732F8480005C382 /* InkCallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkCallbacks.h; sourceTree = "<group>"; };
 		4EC417481734076E003BCD69 /* libJInjector.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libJInjector.a; path = "../JInjector/build/Release-iphoneos/libJInjector.a"; sourceTree = "<group>"; };
+		4EC4174A173407EB003BCD69 /* InkStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkStringBuilder.h; sourceTree = "<group>"; };
+		4EC4174B173407EB003BCD69 /* InkStringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkStringBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				082F6D931732CBC70061978F /* Parser */,
+				4EC4174A173407EB003BCD69 /* InkStringBuilder.h */,
+				4EC4174B173407EB003BCD69 /* InkStringBuilder.m */,
 				082F6D5D1732C8B20061978F /* Ink.h */,
 				082F6D5F1732C8B20061978F /* Ink.m */,
 				082F6D5B1732C8B20061978F /* Supporting Files */,
@@ -167,6 +173,7 @@
 				08B933561732F3F90005C382 /* Ink.h in Headers */,
 				08B933541732F3F40005C382 /* InkRenderer.h in Headers */,
 				08B933551732F3F60005C382 /* InkMarkdownSyntax.h in Headers */,
+				4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +236,7 @@
 				08B933441732E6770005C382 /* markdown.c in Sources */,
 				08B933451732E6770005C382 /* stack.c in Sources */,
 				08B933501732EB3C0005C382 /* InkRenderer.m in Sources */,
+				4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
