@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:JInjector/JInjector.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:InkExample/InkExample.xcodeproj">
    </FileRef>
    <FileRef
