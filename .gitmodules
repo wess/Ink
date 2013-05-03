@@ -1,3 +1,6 @@
 [submodule "sundown"]
 	path = sundown
 	url = git://github.com/vmg/sundown.git
+[submodule "JInjector"]
+	path = JInjector
+	url = https://github.com/jeremytregunna/JInjector.git

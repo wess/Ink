@@ -10,6 +10,8 @@
 #import "markdown.h"
 #import "buffer.h"
 #import "InkCallbacks.h"
+#import "InkStringBuilder.h"
+#import <JInjector/JInjector.h>
 
 struct ink_renderopt
 {
@@ -26,7 +28,8 @@ struct ink_renderopt
     self = [super init];
     if (self)
     {
-        INKMutableAttributedOutputString = [NSMutableAttributedString new];
+        InkStringBuilder* stringBuilder = [[InkStringBuilder alloc] init];
+        [[JInjector defaultInjector] setObject:stringBuilder forClass:[InkStringBuilder class]];
     }
     return self;
 }
@@ -49,8 +52,9 @@ struct ink_renderopt
     
 //    NSData *outputData = [NSData dataWithBytes:outputBuffer->data length:outputBuffer->size];
 //    NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
-    
-    return INKMutableAttributedOutputString;
+
+    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
+    return stringBuilder.attributedString;
 }
 
 @end
