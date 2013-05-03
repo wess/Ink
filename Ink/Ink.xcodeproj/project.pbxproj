@@ -19,7 +19,6 @@
 		08B933501732EB3C0005C382 /* InkRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9334F1732EB3C0005C382 /* InkRenderer.m */; };
 		08B933541732F3F40005C382 /* InkRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B9334E1732EB3C0005C382 /* InkRenderer.h */; };
 		08B933561732F3F90005C382 /* Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4EC417491734076E003BCD69 /* libJInjector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC417481734076E003BCD69 /* libJInjector.a */; };
 		4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC4174A173407EB003BCD69 /* InkStringBuilder.h */; };
 		4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4174B173407EB003BCD69 /* InkStringBuilder.m */; };
 /* End PBXBuildFile section */
@@ -69,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EC417491734076E003BCD69 /* libJInjector.a in Frameworks */,
 				082F6D591732C8B20061978F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,7 +125,9 @@
 		082F6D5A1732C8B20061978F /* Ink */ = {
 			isa = PBXGroup;
 			children = (
-				082F6D931732CBC70061978F /* Parser */,
+				0826529517342121002E8064 /* Attributes */,
+				0826529417342110002E8064 /* StringBuilder */,
+				08B933461732E6B60005C382 /* Renderer */,
 				082F6D5D1732C8B20061978F /* Ink.h */,
 				082F6D5F1732C8B20061978F /* Ink.m */,
 				082F6D5B1732C8B20061978F /* Supporting Files */,
@@ -141,16 +141,6 @@
 				082F6D5C1732C8B20061978F /* Ink-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		082F6D931732CBC70061978F /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				0826529517342121002E8064 /* Attributes */,
-				0826529417342110002E8064 /* StringBuilder */,
-				08B933461732E6B60005C382 /* Renderer */,
-			);
-			name = Parser;
 			sourceTree = "<group>";
 		};
 		08B933381732E65F0005C382 /* Lib */ = {

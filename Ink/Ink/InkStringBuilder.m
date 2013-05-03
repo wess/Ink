@@ -15,8 +15,11 @@
     self = [super init];
     if(self)
     {
-        _attributedString   = [NSMutableAttributedString new];
-        _attributes         = [InkAttributes new];
+        _attributedString       = [NSMutableAttributedString new];
+        _attributes             = [InkAttributes new];
+        _listBulletCharacters   = @[@"•"];
+        _orderedListIndex       = 0;
+        _listDepth              = 0;
     }
     return self;
 }

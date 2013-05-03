@@ -10,9 +10,11 @@
 
 typedef NSDictionary *(^InkAttributesBlock)(NSString *text);
 typedef NSDictionary *(^InkHeaderAttributesBlock)(NSString *text, NSInteger level);
+typedef NSDictionary *(^InkLinkAttributesBlock)(NSURL *link, NSString *title, NSString *content);
+typedef NSDictionary *(^InkCodeAttributesBlock)(NSString *language, NSString *text);
 
 @interface InkAttributes : NSObject
-@property (strong, nonatomic) InkAttributesBlock        blockcodeAttributes;
+@property (strong, nonatomic) InkCodeAttributesBlock    blockcodeAttributes;
 @property (strong, nonatomic) InkAttributesBlock        blockquoteAttributes;
 @property (strong, nonatomic) InkAttributesBlock        blockhtmlAttributes;
 @property (strong, nonatomic) InkHeaderAttributesBlock  headerAttributes;
@@ -29,7 +31,7 @@ typedef NSDictionary *(^InkHeaderAttributesBlock)(NSString *text, NSInteger leve
 @property (strong, nonatomic) InkAttributesBlock        emphasisAttributes;
 @property (strong, nonatomic) InkAttributesBlock        imageAttributes;
 @property (strong, nonatomic) InkAttributesBlock        linebreakAttributes;
-@property (strong, nonatomic) InkAttributesBlock        linkAttributes;
+@property (strong, nonatomic) InkLinkAttributesBlock    linkAttributes;
 @property (strong, nonatomic) InkAttributesBlock        rawHtmlTagAttributes;
 @property (strong, nonatomic) InkAttributesBlock        tripleEmphasisAttributes;
 @property (strong, nonatomic) InkAttributesBlock        strikethroughAttributes;

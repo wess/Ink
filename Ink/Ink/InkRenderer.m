@@ -11,7 +11,6 @@
 #import "buffer.h"
 #import "InkCallbacks.h"
 #import "InkStringBuilder.h"
-#import <JInjector/JInjector.h>
 
 struct ink_renderopt
 {
@@ -19,6 +18,7 @@ struct ink_renderopt
 };
 
 @interface InkRenderer()
+@property (strong, nonatomic) InkStringBuilder *stringBuilder;
 @end
 
 @implementation InkRenderer
@@ -28,8 +28,9 @@ struct ink_renderopt
     self = [super init];
     if (self)
     {
-        InkStringBuilder* stringBuilder = [[InkStringBuilder alloc] init];
-        [[JInjector defaultInjector] setObject:stringBuilder forClass:[InkStringBuilder class]];
+        self.stringBuilder = [[InkStringBuilder alloc] init];
+//        InkStringBuilder* stringBuilder = [[InkStringBuilder alloc] init];
+//        [[JInjector defaultInjector] setObject:stringBuilder forClass:[InkStringBuilder class]];
     }
     return self;
 }
@@ -44,17 +45,15 @@ struct ink_renderopt
     size_t outputSize               = lround(((double)inputBuffer->size) * 1.2);
     struct buf *const outputBuffer  = bufnew(outputSize);
     unsigned int extensions = 0;
-    struct ink_renderopt opt;
-    
-    struct sd_markdown *markdown = sd_markdown_new(extensions, 16, &inkCallbacks, &opt);
+
+    struct sd_markdown *markdown = sd_markdown_new(extensions, 16, &inkCallbacks, (__bridge void *)self.stringBuilder);
     sd_markdown_render(outputBuffer, inputBuffer->data, inputBuffer->size, markdown);
     sd_markdown_free(markdown);
     
 //    NSData *outputData = [NSData dataWithBytes:outputBuffer->data length:outputBuffer->size];
 //    NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
 
-    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
-    return stringBuilder.attributedString;
+    return self.stringBuilder.attributedString;
 }
 
 @end

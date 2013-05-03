@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JInjector/JInjector.h>
 #import "InkAttributes.h"
 
-@interface InkStringBuilder : NSObject <JInjectable>
+@interface InkStringBuilder : NSObject
 @property (nonatomic, readonly, strong) NSMutableAttributedString* attributedString;
 @property (strong, nonatomic) InkAttributes *attributes;
+@property (copy, nonatomic) NSArray *listBulletCharacters;
+@property (nonatomic) NSInteger orderedListIndex;
+@property (nonatomic) NSInteger listDepth;
 @end

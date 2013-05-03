@@ -9,7 +9,6 @@
 #import "markdown.h"
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <JInjector/JInjector.h>
 #import "InkStringBuilder.h"
 #import "InkAttributes.h"
 
@@ -17,50 +16,48 @@
 #define Ink_InkCallbacks_h
 
 #define INK_STRING_FROM_BUFFER(buf)             [[NSString alloc] initWithData:[NSData dataWithBytes:buf->data length:buf->size] encoding:NSUTF8StringEncoding]
-#define INK_STRING_BUILDER                      ((InkStringBuilder *)JInject(InkStringBuilder))
+#define INK_STRING_BUILDER                      ((__bridge InkStringBuilder *)opaque)
 
-static void appendTextWithAttributes(const struct buf *text, NSDictionary *attributes)
+static void appendTextWithAttributes(const struct buf *text, NSDictionary *attributes, void *opaque)
 {
     NSString *outputString                  = INK_STRING_FROM_BUFFER(text);
-    //[[NSString alloc] initWithData:[NSData dataWithBytes:text->data length:text->size] encoding:NSUTF8StringEncoding];
     NSMutableAttributedString *attrString   = [[NSMutableAttributedString alloc] initWithString:outputString];
 
     if(attributes)
         [attrString addAttributes:attributes range:NSMakeRange(0, outputString.length)];
 
-//    InkStringBuilder* stringBuilder = JInject(InkStringBuilder);
     [INK_STRING_BUILDER.attributedString appendAttributedString:attrString];
 }
 
 static void renderBlockcode(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSString *language          = lang && lang->size > 0? INK_STRING_FROM_BUFFER(lang) : @"";
+    NSString *code              = INK_STRING_FROM_BUFFER(text);
+    NSDictionary *attributes    = INK_STRING_BUILDER.attributes.blockcodeAttributes(language, code);
+    
+    appendTextWithAttributes(text, attributes, opaque);
 }
 
 static void renderBlockquote(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.blockquoteAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
 }
 
 static void renderBlockhtml(struct buf *ob,const  struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.blockquoteAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
 }
 
 static void renderHeader(struct buf *ob, const struct buf *text, int level, void *opaque)
 {
-//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
-//    
-//    bufputs(ob, "------------------------------------\n");
-//    bufput(ob, text->data, text->size);
-//    bufputs(ob, "------------------------------------\n");
-//    bufputc(ob, '\n');
-
     struct buf *htext = (struct buf *)text;
     bufputc(htext, '\n');
 
     NSDictionary *attributes = INK_STRING_BUILDER.attributes.headerAttributes(INK_STRING_FROM_BUFFER(htext), level);
-    appendTextWithAttributes(htext, attributes);
+    appendTextWithAttributes(htext, attributes, opaque);
+
 }
 
 static void renderHrule(struct buf *ob, void *opaque)
@@ -70,27 +67,50 @@ static void renderHrule(struct buf *ob, void *opaque)
 
 static void renderList(struct buf *ob, const struct buf *text, int flags, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    struct buf *ltext = (struct buf *)text;
+    bufputc(ltext, '\n');
+    
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.blockquoteAttributes(INK_STRING_FROM_BUFFER(ltext));
+
+    appendTextWithAttributes(ltext, attributes, opaque);
 }
 
 static void renderListitem(struct buf *ob, const struct buf *text, int flags, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    BOOL isOrderedList              = ((flags & MKD_LIST_ORDERED) != 0);
+    InkStringBuilder *stringBuilder = (__bridge InkStringBuilder *)opaque;
+    NSArray *bullets                = stringBuilder.listBulletCharacters;
+    NSString *bullet;
+
+    if(isOrderedList)
+    {
+        NSInteger index                 = stringBuilder.orderedListIndex + 1;
+        stringBuilder.orderedListIndex  = index;
+        bullet                          = [NSString stringWithFormat:@"%d.", index];
+    }
+    else if(bullets.count > stringBuilder.listDepth)
+    {
+        bullet = bullets[stringBuilder.listDepth];
+    }
+
+    bullet = [bullet stringByAppendingString:@" "];
+    
+    struct buf *litext = bufnew(256);
+    bufputs(litext, [bullet UTF8String]);
+    bufput(litext, text->data, text->size);
+
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.listitemAttributes(INK_STRING_FROM_BUFFER(litext));
+    appendTextWithAttributes(litext, attributes, opaque);
 }
 
 static void renderParagraph(struct buf *ob, const struct buf *text, void *opaque)
 {
-//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
-//    
-//    bufput(ob, text->data, text->size);
-//    bufputc(ob, '\n');
-//    bufputc(ob, '\n');
-
     struct buf *ptext = (struct buf *)text;
+    bufputc(ptext, '\n');
     bufputc(ptext, '\n');
 
     NSDictionary *attributes = INK_STRING_BUILDER.attributes.paragraphAttributes(INK_STRING_FROM_BUFFER(ptext));
-    appendTextWithAttributes(ptext, attributes);
+    appendTextWithAttributes(ptext, attributes, opaque);
 }
 
 static void renderTable(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque)
@@ -119,7 +139,9 @@ static int renderAutolink(struct buf *ob, const struct buf *link, enum mkd_autol
 
 static int renderCodespan(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.codespanAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
+    
     return 1;
 }
 
@@ -143,18 +165,34 @@ static int renderImage(struct buf *ob, const struct buf *link, const struct buf 
 
 static int renderLinebreak(struct buf *ob, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.linebreakAttributes(@"\n");
+    NSAttributedString *lineBreak = [[NSAttributedString alloc] initWithString:@"\n" attributes:attributes];
+    [INK_STRING_BUILDER.attributedString appendAttributedString:lineBreak];
+    
     return 1;
 }
 
 static int renderLink(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    
+    NSString *linkString = INK_STRING_FROM_BUFFER(link);
+    if(linkString)
+    {
+        NSString *linkTitle     = title && title->size > 0? INK_STRING_FROM_BUFFER(link) : @"";
+        NSString *linkContent   = INK_STRING_FROM_BUFFER(content);
+        NSURL *linkUrl          = [NSURL URLWithString:linkString];
+        
+        NSDictionary *attributes = INK_STRING_BUILDER.attributes.linkAttributes(linkUrl, linkTitle, linkContent);
+        appendTextWithAttributes(content, attributes, opaque);
+    }
+    
     return 1;
 }
 
 static int renderRawHtmlTag(struct buf *ob, const struct buf *tag, void *opaque)
 {
+    
     NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
     return 1;
 }
