@@ -44,6 +44,11 @@
                     };
         };
 
+        self.emphasisAttributes         = ^(NSString *text) {
+            return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont italicSystemFontOfSize:12.0f] };
+        };
+
+        
         self.blockcodeAttributes        = ^(NSString *language, NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor cyanColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.blockquoteAttributes       = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.blockhtmlAttributes        = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
@@ -57,7 +62,6 @@
         self.autolinkAttributes         = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.codespanAttributes         = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.doubleEmphasisAttributes   = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
-        self.emphasisAttributes         = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.imageAttributes            = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.linebreakAttributes        = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.linkAttributes             = ^(NSURL *link, NSString *title, NSString *content) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };

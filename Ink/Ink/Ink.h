@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InkRenderer.h"
 
 @interface Ink : NSObject
+- (NSAttributedString *)renderFromString:(NSString *)string;
 @end
+ 

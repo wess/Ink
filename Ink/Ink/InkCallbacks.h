@@ -133,7 +133,15 @@ static void renderTableCell(struct buf *ob, const struct buf *text, int flags, v
 /* span level callbacks - NULL or return 0 prints the span verbatim */
 static int renderAutolink(struct buf *ob, const struct buf *link, enum mkd_autolink type, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSString *linkString = INK_STRING_FROM_BUFFER(link);
+    if(linkString)
+    {
+        NSURL *linkUrl          = [NSURL URLWithString:linkString];
+        
+        NSDictionary *attributes = INK_STRING_BUILDER.attributes.linkAttributes(linkUrl, linkString, linkString);
+        appendTextWithAttributes(link, attributes, opaque);
+    }
+    
     return 1;
 }
 
@@ -147,13 +155,15 @@ static int renderCodespan(struct buf *ob, const struct buf *text, void *opaque)
 
 static int renderDoubleEmphasis(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.doubleEmphasisAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
     return 1;
 }
 
 static int renderEmphasis(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.emphasisAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
     return 1;
 }
 
@@ -174,8 +184,6 @@ static int renderLinebreak(struct buf *ob, void *opaque)
 
 static int renderLink(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque)
 {
-//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
-    
     NSString *linkString = INK_STRING_FROM_BUFFER(link);
     if(linkString)
     {
@@ -199,19 +207,24 @@ static int renderRawHtmlTag(struct buf *ob, const struct buf *tag, void *opaque)
 
 static int renderTripleEmphasis(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.tripleEmphasisAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
+
     return 1;
 }
 
 static int renderStrikethrough(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.strikethroughAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
+
     return 1;
 }
 
 static int renderSuperscript(struct buf *ob, const struct buf *text, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    NSDictionary *attributes = INK_STRING_BUILDER.attributes.superscriptAttributes(INK_STRING_FROM_BUFFER(text));
+    appendTextWithAttributes(text, attributes, opaque);
     return 1;
 }
 
@@ -219,7 +232,7 @@ static int renderSuperscript(struct buf *ob, const struct buf *text, void *opaqu
 /* low level callbacks - NULL copies input directly into the output */
 static void renderEntity(struct buf *ob, const struct buf *entity, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
 }
 
 static void renderNormalText(struct buf *ob, const struct buf *text, void *opaque)
@@ -231,12 +244,14 @@ static void renderNormalText(struct buf *ob, const struct buf *text, void *opaqu
 /* header and footer */
 static void renderDocHeader(struct buf *ob, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    //Not used, really, document start indication.
+//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
 }
 
 static void renderDocFooter(struct buf *ob, void *opaque)
 {
-    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
+    //Not used, really, document stop indication.
+//    NSLog(@"%@\n", [NSString stringWithCString:__func__ encoding:NSUTF8StringEncoding]);
 }
 
 struct sd_callbacks inkCallbacks = {

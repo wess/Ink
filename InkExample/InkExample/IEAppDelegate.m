@@ -26,10 +26,9 @@
     [self.window.rootViewController.view addSubview:textView];
     
     NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"md"] encoding:NSUTF8StringEncoding error:nil];
-    
-    InkRenderer *render = [[InkRenderer alloc] init];
-    
-    textView.attributedText = [render renderMarkdown:markdown];
+
+    Ink *ink = [Ink new];
+    textView.attributedText = [ink renderFromString:markdown];
     
     return YES;
 }

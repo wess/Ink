@@ -8,7 +8,7 @@ Cargo is a simplified key/value (document style) storage engine that is flexible
 * Booze.
 
 ## Storage Driver
-Cargo has made it easy to create custom storage drivers, iCloud and Dropbox are included as well as one for NSUserdefaults in the CargoExample project.
+*Cargo has made* it easy to create custom storage drivers, iCloud and Dropbox are included as well as one for NSUserdefaults in the CargoExample project.
 
 ## LINK
 [Go to google](http://www.google.com) has no title attribute.

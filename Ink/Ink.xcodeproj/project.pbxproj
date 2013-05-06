@@ -46,6 +46,7 @@
 		082F6D5F1732C8B20061978F /* Ink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ink.m; sourceTree = "<group>"; };
 		082F6D8F1732CB2C0061978F /* libParseKitMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libParseKitMobile.a; path = "../parsekit/build/Debug-iphoneos/libParseKitMobile.a"; sourceTree = "<group>"; };
 		082F6D901732CB2C0061978F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		087093841737ECED000FC15C /* InkRenderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkRenderProtocol.h; sourceTree = "<group>"; };
 		08B933391732E6770005C382 /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autolink.c; path = ../sundown/src/autolink.c; sourceTree = "<group>"; };
 		08B9333A1732E6770005C382 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autolink.h; path = ../sundown/src/autolink.h; sourceTree = "<group>"; };
 		08B9333B1732E6770005C382 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = ../sundown/src/buffer.c; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 				08B9334E1732EB3C0005C382 /* InkRenderer.h */,
 				08B9334F1732EB3C0005C382 /* InkRenderer.m */,
 				08B933591732F8480005C382 /* InkCallbacks.h */,
+				087093841737ECED000FC15C /* InkRenderProtocol.h */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";

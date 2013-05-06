@@ -35,9 +35,9 @@ struct ink_renderopt
     return self;
 }
 
-- (NSAttributedString *)renderMarkdown:(NSString *)markdownString
+- (NSAttributedString *)renderFromString:(NSString *)string
 {
-    NSData *data                    = [markdownString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data                    = [string dataUsingEncoding:NSUTF8StringEncoding];
     struct buf *const inputBuffer   = bufnew(data.length);
 
     bufput(inputBuffer, data.bytes, data.length);
