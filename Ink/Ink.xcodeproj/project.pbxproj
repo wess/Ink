@@ -12,12 +12,21 @@
 		082F6D591732C8B20061978F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082F6D581732C8B20061978F /* Foundation.framework */; };
 		082F6D5E1732C8B20061978F /* Ink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; };
 		082F6D601732C8B20061978F /* Ink.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F6D5F1732C8B20061978F /* Ink.m */; };
+		082FFE9A173831B900910377 /* InkHTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 082FFE98173831B900910377 /* InkHTMLElement.h */; };
+		082FFE9B173831B900910377 /* InkHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 082FFE99173831B900910377 /* InkHTMLElement.m */; };
+		087093891737F235000FC15C /* InkMarkdownAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 087093871737F235000FC15C /* InkMarkdownAttributes.h */; };
+		0870938A1737F235000FC15C /* InkMarkdownAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 087093881737F235000FC15C /* InkMarkdownAttributes.m */; };
+		0870938E1737F712000FC15C /* InkHTMLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0870938C1737F712000FC15C /* InkHTMLRenderer.h */; };
+		0870938F1737F712000FC15C /* InkHTMLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0870938D1737F712000FC15C /* InkHTMLRenderer.m */; };
+		087093911737F9E3000FC15C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 087093901737F9E3000FC15C /* libxml2.dylib */; };
+		0870939D1738137A000FC15C /* InkHTMLAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0870939B1738137A000FC15C /* InkHTMLAttributes.h */; };
+		0870939E1738137A000FC15C /* InkHTMLAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0870939C1738137A000FC15C /* InkHTMLAttributes.m */; };
 		08B933421732E6770005C382 /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B933391732E6770005C382 /* autolink.c */; };
 		08B933431732E6770005C382 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B9333B1732E6770005C382 /* buffer.c */; };
 		08B933441732E6770005C382 /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B9333E1732E6770005C382 /* markdown.c */; };
 		08B933451732E6770005C382 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 08B933401732E6770005C382 /* stack.c */; };
-		08B933501732EB3C0005C382 /* InkRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9334F1732EB3C0005C382 /* InkRenderer.m */; };
-		08B933541732F3F40005C382 /* InkRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B9334E1732EB3C0005C382 /* InkRenderer.h */; };
+		08B933501732EB3C0005C382 /* InkMarkdownRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9334F1732EB3C0005C382 /* InkMarkdownRenderer.m */; };
+		08B933541732F3F40005C382 /* InkMarkdownRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B9334E1732EB3C0005C382 /* InkMarkdownRenderer.h */; };
 		08B933561732F3F90005C382 /* Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC4174A173407EB003BCD69 /* InkStringBuilder.h */; };
 		4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4174B173407EB003BCD69 /* InkStringBuilder.m */; };
@@ -46,7 +55,16 @@
 		082F6D5F1732C8B20061978F /* Ink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ink.m; sourceTree = "<group>"; };
 		082F6D8F1732CB2C0061978F /* libParseKitMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libParseKitMobile.a; path = "../parsekit/build/Debug-iphoneos/libParseKitMobile.a"; sourceTree = "<group>"; };
 		082F6D901732CB2C0061978F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		082FFE98173831B900910377 /* InkHTMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkHTMLElement.h; sourceTree = "<group>"; };
+		082FFE99173831B900910377 /* InkHTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkHTMLElement.m; sourceTree = "<group>"; };
 		087093841737ECED000FC15C /* InkRenderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkRenderProtocol.h; sourceTree = "<group>"; };
+		087093871737F235000FC15C /* InkMarkdownAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkMarkdownAttributes.h; sourceTree = "<group>"; };
+		087093881737F235000FC15C /* InkMarkdownAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkMarkdownAttributes.m; sourceTree = "<group>"; };
+		0870938C1737F712000FC15C /* InkHTMLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkHTMLRenderer.h; sourceTree = "<group>"; };
+		0870938D1737F712000FC15C /* InkHTMLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkHTMLRenderer.m; sourceTree = "<group>"; };
+		087093901737F9E3000FC15C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		0870939B1738137A000FC15C /* InkHTMLAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkHTMLAttributes.h; sourceTree = "<group>"; };
+		0870939C1738137A000FC15C /* InkHTMLAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkHTMLAttributes.m; sourceTree = "<group>"; };
 		08B933391732E6770005C382 /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autolink.c; path = ../sundown/src/autolink.c; sourceTree = "<group>"; };
 		08B9333A1732E6770005C382 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autolink.h; path = ../sundown/src/autolink.h; sourceTree = "<group>"; };
 		08B9333B1732E6770005C382 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = ../sundown/src/buffer.c; sourceTree = "<group>"; };
@@ -56,8 +74,8 @@
 		08B9333F1732E6770005C382 /* markdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markdown.h; path = ../sundown/src/markdown.h; sourceTree = "<group>"; };
 		08B933401732E6770005C382 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stack.c; path = ../sundown/src/stack.c; sourceTree = "<group>"; };
 		08B933411732E6770005C382 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stack.h; path = ../sundown/src/stack.h; sourceTree = "<group>"; };
-		08B9334E1732EB3C0005C382 /* InkRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkRenderer.h; sourceTree = "<group>"; };
-		08B9334F1732EB3C0005C382 /* InkRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkRenderer.m; sourceTree = "<group>"; };
+		08B9334E1732EB3C0005C382 /* InkMarkdownRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkMarkdownRenderer.h; sourceTree = "<group>"; };
+		08B9334F1732EB3C0005C382 /* InkMarkdownRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkMarkdownRenderer.m; sourceTree = "<group>"; };
 		08B933591732F8480005C382 /* InkCallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkCallbacks.h; sourceTree = "<group>"; };
 		4EC417481734076E003BCD69 /* libJInjector.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJInjector.a; path = "../JInjector/build/Release-iphoneos/libJInjector.a"; sourceTree = "<group>"; };
 		4EC4174A173407EB003BCD69 /* InkStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkStringBuilder.h; sourceTree = "<group>"; };
@@ -69,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087093911737F9E3000FC15C /* libxml2.dylib in Frameworks */,
 				082F6D591732C8B20061978F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,8 +107,10 @@
 		0826529517342121002E8064 /* Attributes */ = {
 			isa = PBXGroup;
 			children = (
+				0870939A17381365000FC15C /* Html */,
 				082652961734212F002E8064 /* InkAttributes.h */,
 				082652971734212F002E8064 /* InkAttributes.m */,
+				087093861737F1CA000FC15C /* Markdown */,
 			);
 			name = Attributes;
 			sourceTree = "<group>";
@@ -115,6 +136,7 @@
 		082F6D571732C8B20061978F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				087093901737F9E3000FC15C /* libxml2.dylib */,
 				4EC417481734076E003BCD69 /* libJInjector.a */,
 				082F6D901732CB2C0061978F /* libicucore.dylib */,
 				082F6D8F1732CB2C0061978F /* libParseKitMobile.a */,
@@ -144,6 +166,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		082FFE961738319800910377 /* Element */ = {
+			isa = PBXGroup;
+			children = (
+				082FFE98173831B900910377 /* InkHTMLElement.h */,
+				082FFE99173831B900910377 /* InkHTMLElement.m */,
+			);
+			name = Element;
+			sourceTree = "<group>";
+		};
+		087093851737F171000FC15C /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				08B933591732F8480005C382 /* InkCallbacks.h */,
+				08B9334E1732EB3C0005C382 /* InkMarkdownRenderer.h */,
+				08B9334F1732EB3C0005C382 /* InkMarkdownRenderer.m */,
+			);
+			name = Markdown;
+			sourceTree = "<group>";
+		};
+		087093861737F1CA000FC15C /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				087093871737F235000FC15C /* InkMarkdownAttributes.h */,
+				087093881737F235000FC15C /* InkMarkdownAttributes.m */,
+			);
+			name = Markdown;
+			sourceTree = "<group>";
+		};
+		0870938B1737F705000FC15C /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				082FFE961738319800910377 /* Element */,
+				0870938C1737F712000FC15C /* InkHTMLRenderer.h */,
+				0870938D1737F712000FC15C /* InkHTMLRenderer.m */,
+			);
+			name = HTML;
+			sourceTree = "<group>";
+		};
+		0870939A17381365000FC15C /* Html */ = {
+			isa = PBXGroup;
+			children = (
+				0870939B1738137A000FC15C /* InkHTMLAttributes.h */,
+				0870939C1738137A000FC15C /* InkHTMLAttributes.m */,
+			);
+			name = Html;
+			sourceTree = "<group>";
+		};
 		08B933381732E65F0005C382 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,9 +232,8 @@
 		08B933461732E6B60005C382 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				08B9334E1732EB3C0005C382 /* InkRenderer.h */,
-				08B9334F1732EB3C0005C382 /* InkRenderer.m */,
-				08B933591732F8480005C382 /* InkCallbacks.h */,
+				0870938B1737F705000FC15C /* HTML */,
+				087093851737F171000FC15C /* Markdown */,
 				087093841737ECED000FC15C /* InkRenderProtocol.h */,
 			);
 			name = Renderer;
@@ -179,9 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B933561732F3F90005C382 /* Ink.h in Headers */,
-				08B933541732F3F40005C382 /* InkRenderer.h in Headers */,
+				08B933541732F3F40005C382 /* InkMarkdownRenderer.h in Headers */,
 				4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */,
 				082652981734212F002E8064 /* InkAttributes.h in Headers */,
+				087093891737F235000FC15C /* InkMarkdownAttributes.h in Headers */,
+				0870938E1737F712000FC15C /* InkHTMLRenderer.h in Headers */,
+				0870939D1738137A000FC15C /* InkHTMLAttributes.h in Headers */,
+				082FFE9A173831B900910377 /* InkHTMLElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,9 +314,13 @@
 				08B933431732E6770005C382 /* buffer.c in Sources */,
 				08B933441732E6770005C382 /* markdown.c in Sources */,
 				08B933451732E6770005C382 /* stack.c in Sources */,
-				08B933501732EB3C0005C382 /* InkRenderer.m in Sources */,
+				08B933501732EB3C0005C382 /* InkMarkdownRenderer.m in Sources */,
 				4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */,
 				082652991734212F002E8064 /* InkAttributes.m in Sources */,
+				0870938A1737F235000FC15C /* InkMarkdownAttributes.m in Sources */,
+				0870938F1737F712000FC15C /* InkHTMLRenderer.m in Sources */,
+				0870939E1738137A000FC15C /* InkHTMLAttributes.m in Sources */,
+				082FFE9B173831B900910377 /* InkHTMLElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +387,7 @@
 				DSTROOT = /tmp/Ink.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ink/Ink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -325,7 +401,7 @@
 				DSTROOT = /tmp/Ink.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ink/Ink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -16,7 +16,7 @@
     if(self)
     {
         _attributedString       = [NSMutableAttributedString new];
-        _attributes             = [InkAttributes new];
+        _attributes             = [InkMarkdownAttributes new];
         _listBulletCharacters   = @[@"•"];
         _orderedListIndex       = 0;
         _listDepth              = 0;

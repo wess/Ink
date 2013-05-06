@@ -7,20 +7,20 @@
 //
 
 #import "Ink.h"
-#import "InkRenderer.h"
+
 
 @interface Ink()
-@property (strong, nonatomic) InkRenderer  *renderer;
+@property (strong, nonatomic) id renderer;
 @end
 
 @implementation Ink
 
-- (id)init
+- (instancetype)initWithRenderer:(Class)rendererClass
 {
     self = [super init];
     if (self)
     {
-        self.renderer = [[InkRenderer alloc] init];
+        self.renderer = [[rendererClass alloc] init];
     }
     return self;
 }

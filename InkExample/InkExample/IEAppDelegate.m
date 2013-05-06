@@ -9,26 +9,29 @@
 #import "IEAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Ink/Ink.h>
+#import <Ink/InkMarkdownRenderer.h>
+#import <Ink/InkHTMLRenderer.h>
 
 @implementation IEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window                     = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController  = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.backgroundColor     = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectInset([[UIScreen mainScreen] bounds], 30.0f, 30.0f)];
-    textView.layer.borderColor = [UIColor redColor].CGColor;
-    textView.layer.borderWidth = 2.0f;
+    UITextView *textView        = [[UITextView alloc] initWithFrame:CGRectInset([[UIScreen mainScreen] bounds], 30.0f, 30.0f)];
+    textView.layer.borderColor  = [UIColor redColor].CGColor;
+    textView.layer.borderWidth  = 2.0f;
     
     [self.window.rootViewController.view addSubview:textView];
     
-    NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"md"] encoding:NSUTF8StringEncoding error:nil];
+//    NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"md"] encoding:NSUTF8StringEncoding error:nil];
+    NSString *html = @"<html><head></head><body><h1>Hello World</h1><p>This is a paragraph</p></body></html>";
 
-    Ink *ink = [Ink new];
-    textView.attributedText = [ink renderFromString:markdown];
+    Ink *ink = [[Ink alloc] initWithRenderer:[InkHTMLRenderer class]];
+    textView.attributedText = [ink renderFromString:html];
     
     return YES;
 }

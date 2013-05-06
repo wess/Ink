@@ -16,6 +16,7 @@
 		082F6D851732C8CB0061978F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F6D841732C8CB0061978F /* Default.png */; };
 		082F6D871732C8CB0061978F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F6D861732C8CB0061978F /* Default@2x.png */; };
 		082F6D891732C8CB0061978F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F6D881732C8CB0061978F /* Default-568h@2x.png */; };
+		087093951737FED2000FC15C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 087093941737FED2000FC15C /* libxml2.dylib */; };
 		08B933521732F3740005C382 /* libInk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B933511732F3740005C382 /* libInk.a */; };
 		08B933581732F7850005C382 /* example.md in Resources */ = {isa = PBXBuildFile; fileRef = 08B933571732F7850005C382 /* example.md */; };
 		08B9335B173305520005C382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B9335A173305520005C382 /* QuartzCore.framework */; };
@@ -35,6 +36,7 @@
 		082F6D841732C8CB0061978F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		082F6D861732C8CB0061978F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		082F6D881732C8CB0061978F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		087093941737FED2000FC15C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		08B933511732F3740005C382 /* libInk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInk.a; path = "../../../Library/Developer/Xcode/DerivedData/Ink-bukyeuqojvczrshicubuytynlydq/Build/Products/Debug-iphoneos/libInk.a"; sourceTree = "<group>"; };
 		08B933571732F7850005C382 /* example.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.md; sourceTree = "<group>"; };
 		08B9335A173305520005C382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087093951737FED2000FC15C /* libxml2.dylib in Frameworks */,
 				08B9335B173305520005C382 /* QuartzCore.framework in Frameworks */,
 				08B933521732F3740005C382 /* libInk.a in Frameworks */,
 				082F6D731732C8CB0061978F /* UIKit.framework in Frameworks */,
@@ -76,6 +79,7 @@
 		082F6D711732C8CB0061978F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				087093941737FED2000FC15C /* libxml2.dylib */,
 				08B9335A173305520005C382 /* QuartzCore.framework */,
 				08B933511732F3740005C382 /* libInk.a */,
 				082F6D721732C8CB0061978F /* UIKit.framework */,
@@ -257,7 +261,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InkExample/InkExample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../Ink/**";
+				HEADER_SEARCH_PATHS = (
+					"../Ink/**",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "InkExample/InkExample-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +277,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InkExample/InkExample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../Ink/**";
+				HEADER_SEARCH_PATHS = (
+					"../Ink/**",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "InkExample/InkExample-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Ink : NSObject
+- (instancetype)initWithRenderer:(Class)rendererClass;
 - (NSAttributedString *)renderFromString:(NSString *)string;
 @end
  

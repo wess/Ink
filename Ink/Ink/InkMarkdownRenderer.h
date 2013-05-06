@@ -1,5 +1,5 @@
 //
-//  InkRenderer.h
+//  InkMarkdownRenderer.h
 //  Ink
 //
 //  Created by Wess Cope on 5/2/13.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "InkRenderProtocol.h"
 
-@interface InkRenderer : NSObject<InkRenderProtocol>
+@interface InkMarkdownRenderer : NSObject<InkRenderProtocol>
 - (NSAttributedString *)renderFromString:(NSString *)string;
 @end

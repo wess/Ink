@@ -1,12 +1,12 @@
 //
-//  InkRenderer.m
+//  InkMarkdownRenderer.m
 //  Ink
 //
 //  Created by Wess Cope on 5/2/13.
 //  Copyright (c) 2013 Wess Cope. All rights reserved.
 //
 
-#import "InkRenderer.h"
+#import "InkMarkdownRenderer.h"
 #import "markdown.h"
 #import "buffer.h"
 #import "InkCallbacks.h"
@@ -17,22 +17,22 @@ struct ink_renderopt
     unsigned int flags;
 };
 
-@interface InkRenderer()
+@interface InkMarkdownRenderer()
 @property (strong, nonatomic) InkStringBuilder *stringBuilder;
 @end
 
-@implementation InkRenderer
+@implementation InkMarkdownRenderer
+@synthesize stringBuilder = _stringBuilder;
 
-- (id)init
+
+- (InkStringBuilder *)stringBuilder
 {
-    self = [super init];
-    if (self)
-    {
-        self.stringBuilder = [[InkStringBuilder alloc] init];
-//        InkStringBuilder* stringBuilder = [[InkStringBuilder alloc] init];
-//        [[JInjector defaultInjector] setObject:stringBuilder forClass:[InkStringBuilder class]];
-    }
-    return self;
+    if(_stringBuilder)
+        return _stringBuilder;
+    
+    _stringBuilder = [[InkStringBuilder alloc] init];
+    
+    return _stringBuilder;
 }
 
 - (NSAttributedString *)renderFromString:(NSString *)string
