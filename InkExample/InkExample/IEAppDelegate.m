@@ -11,6 +11,11 @@
 #import <Ink/Ink.h>
 #import <Ink/InkMarkdownRenderer.h>
 #import <Ink/InkHTMLRenderer.h>
+#import <Ink/UITextView+Ink.h>
+
+@interface IEAppDelegate()
+- (void)textViewClicked:(UITapGestureRecognizer *)gesture;
+@end
 
 @implementation IEAppDelegate
 
@@ -24,16 +29,27 @@
     UITextView *textView        = [[UITextView alloc] initWithFrame:CGRectInset([[UIScreen mainScreen] bounds], 30.0f, 30.0f)];
     textView.layer.borderColor  = [UIColor redColor].CGColor;
     textView.layer.borderWidth  = 2.0f;
+    textView.editable           = NO;
     
     [self.window.rootViewController.view addSubview:textView];
     
-//    NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"md"] encoding:NSUTF8StringEncoding error:nil];
-    NSString *html = @"<html><head></head><body><h1>Hello World</h1><p>This is a paragraph</p></body></html>";
+    NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"md"] encoding:NSUTF8StringEncoding error:nil];
+//    NSString *html = @"<html><head></head><body><h1>Hello World</h1><p>This is a paragraph</p></body></html>";
 
-    Ink *ink = [[Ink alloc] initWithRenderer:[InkHTMLRenderer class]];
-    textView.attributedText = [ink renderFromString:html];
+    Ink *ink = [[Ink alloc] initWithRenderer:[InkMarkdownRenderer class]];
+    textView.attributedText = [ink renderFromString:markdown];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewClicked:)];
+    [textView addGestureRecognizer:tapGesture];
     
     return YES;
+}
+
+- (void)textViewClicked:(UITapGestureRecognizer *)gesture
+{
+    UITextView *textView    = (UITextView *)gesture.view;
+//    CGPoint point           = [gesture locationInView:textView];
+    NSLog(@"TEXT AT POINT: %@", NSStringFromRange(textView.visibleTextRange));
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

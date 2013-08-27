@@ -30,6 +30,8 @@
 		08B933561732F3F90005C382 /* Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = 082F6D5D1732C8B20061978F /* Ink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EC4174C173407EB003BCD69 /* InkStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC4174A173407EB003BCD69 /* InkStringBuilder.h */; };
 		4EC4174D173407EB003BCD69 /* InkStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4174B173407EB003BCD69 /* InkStringBuilder.m */; };
+		D7A2944217CCF59A008592F5 /* UITextView+Ink.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A2944017CCF59A008592F5 /* UITextView+Ink.h */; };
+		D7A2944317CCF59A008592F5 /* UITextView+Ink.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A2944117CCF59A008592F5 /* UITextView+Ink.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +82,8 @@
 		4EC417481734076E003BCD69 /* libJInjector.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJInjector.a; path = "../JInjector/build/Release-iphoneos/libJInjector.a"; sourceTree = "<group>"; };
 		4EC4174A173407EB003BCD69 /* InkStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkStringBuilder.h; sourceTree = "<group>"; };
 		4EC4174B173407EB003BCD69 /* InkStringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InkStringBuilder.m; sourceTree = "<group>"; };
+		D7A2944017CCF59A008592F5 /* UITextView+Ink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Ink.h"; sourceTree = "<group>"; };
+		D7A2944117CCF59A008592F5 /* UITextView+Ink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Ink.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		082F6D5A1732C8B20061978F /* Ink */ = {
 			isa = PBXGroup;
 			children = (
+				D7A2943F17CCF583008592F5 /* Categories */,
 				0826529517342121002E8064 /* Attributes */,
 				0826529417342110002E8064 /* StringBuilder */,
 				08B933461732E6B60005C382 /* Renderer */,
@@ -239,6 +244,15 @@
 			name = Renderer;
 			sourceTree = "<group>";
 		};
+		D7A2943F17CCF583008592F5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D7A2944017CCF59A008592F5 /* UITextView+Ink.h */,
+				D7A2944117CCF59A008592F5 /* UITextView+Ink.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -254,6 +268,7 @@
 				0870938E1737F712000FC15C /* InkHTMLRenderer.h in Headers */,
 				0870939D1738137A000FC15C /* InkHTMLAttributes.h in Headers */,
 				082FFE9A173831B900910377 /* InkHTMLElement.h in Headers */,
+				D7A2944217CCF59A008592F5 /* UITextView+Ink.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +336,7 @@
 				0870938F1737F712000FC15C /* InkHTMLRenderer.m in Sources */,
 				0870939E1738137A000FC15C /* InkHTMLAttributes.m in Sources */,
 				082FFE9B173831B900910377 /* InkHTMLElement.m in Sources */,
+				D7A2944317CCF59A008592F5 /* UITextView+Ink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
