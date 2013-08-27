@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NSString *const InkLinkAttribute = @"InkLinkAttribute";
+
 @implementation InkAttributes
 
 @end

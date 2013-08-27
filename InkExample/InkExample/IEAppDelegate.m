@@ -48,8 +48,10 @@
 - (void)textViewClicked:(UITapGestureRecognizer *)gesture
 {
     UITextView *textView    = (UITextView *)gesture.view;
-//    CGPoint point           = [gesture locationInView:textView];
-    NSLog(@"TEXT AT POINT: %@", NSStringFromRange(textView.visibleTextRange));
+    CGPoint point           = [gesture locationInView:textView];
+
+    NSLog(@"AAAAA: %@",     [textView.attributedText attribute:InkLinkAttribute atIndex:0 longestEffectiveRange:NULL inRange:[textView rangeOfTextAtPoint:point]]);
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

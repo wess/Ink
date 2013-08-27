@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UITextView+Ink.h"
 
 @interface Ink : NSObject
 - (instancetype)initWithRenderer:(Class)rendererClass;

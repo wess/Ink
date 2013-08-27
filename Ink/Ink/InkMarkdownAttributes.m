@@ -63,7 +63,7 @@
         self.doubleEmphasisAttributes   = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.imageAttributes            = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.linebreakAttributes        = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
-        self.linkAttributes             = ^(NSURL *link, NSString *title, NSString *content) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
+        self.linkAttributes             = ^(NSURL *link, NSString *title, NSString *content) { return @{InkLinkAttribute: link, NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.rawHtmlTagAttributes       = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.tripleEmphasisAttributes   = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };
         self.strikethroughAttributes    = ^(NSString *text) { return @{ NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:12.0f] }; };

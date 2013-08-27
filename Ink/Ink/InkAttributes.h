@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const InkLinkAttribute;
+
 typedef NSDictionary *(^InkAttributesBlock)(NSString *text);
 typedef NSDictionary *(^InkHeaderAttributesBlock)(NSString *text, NSInteger level);
 typedef NSDictionary *(^InkLinkAttributesBlock)(NSURL *link, NSString *title, NSString *content);
